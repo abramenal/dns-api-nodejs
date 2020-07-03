@@ -1,0 +1,46 @@
+{
+  "name": "dns-api-nodejs",
+  "version": "1.0.0",
+  "description": "Drone navigation service",
+  "main": "src/index.js",
+  "type": "module",
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "scripts": {
+    "dev": "nodemon -e js -w ./src ./src/index.js",
+    "format": "prettier .",
+    "lint": "eslint . --ext=js",
+    "start": "node src/index.js",
+    "test": "npm run test:unit && npm run test:security",
+    "test:unit": "jest",
+    "test:security": "snyk test",
+    "prepare": "snyk protect"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/abramenal/dns-api-nodejs.git"
+  },
+  "author": "abramenal <pavel.auramenka@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/abramenal/dns-api-nodejs/issues"
+  },
+  "homepage": "https://github.com/abramenal/dns-api-nodejs#readme",
+  "devDependencies": {
+    "eslint": "^7.3.1",
+    "eslint-config-airbnb-base": "^14.2.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "eslint-plugin-security": "^1.4.0",
+    "husky": "^4.2.5",
+    "jest": "^26.1.0",
+    "nodemon": "^2.0.4",
+    "prettier": "^2.0.5",
+    "snyk": "^1.360.0"
+  },
+  "dependencies": {
+    "dotenv": "^8.2.0"
+  }
+}
