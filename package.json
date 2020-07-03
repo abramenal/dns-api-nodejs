@@ -8,10 +8,11 @@
     "node": ">=14.0.0"
   },
   "scripts": {
-    "dev": "nodemon -e js -w ./src ./src/index.js",
+    "build": "rimraf ./build && tsc",
+    "dev": "ts-node-dev ./src/index.ts",
     "format": "prettier .",
-    "lint": "eslint . --ext=js",
-    "start": "node src/index.js",
+    "lint": "eslint . --ext=ts",
+    "start": "node dist/index.js",
     "test": "npm run test:unit && npm run test:security",
     "test:unit": "jest",
     "test:security": "snyk test",
@@ -28,8 +29,11 @@
   },
   "homepage": "https://github.com/abramenal/dns-api-nodejs#readme",
   "devDependencies": {
+    "@types/jest": "^26.0.3",
+    "@types/node": "^14.0.14",
+    "@typescript-eslint/eslint-plugin": "^3.5.0",
+    "@typescript-eslint/parser": "^3.5.0",
     "eslint": "^7.3.1",
-    "eslint-config-airbnb-base": "^14.2.0",
     "eslint-config-prettier": "^6.11.0",
     "eslint-plugin-import": "^2.22.0",
     "eslint-plugin-prettier": "^3.1.4",
@@ -38,7 +42,11 @@
     "jest": "^26.1.0",
     "nodemon": "^2.0.4",
     "prettier": "^2.0.5",
-    "snyk": "^1.360.0"
+    "rimraf": "^3.0.2",
+    "snyk": "^1.360.0",
+    "ts-jest": "^26.1.1",
+    "ts-node-dev": "^1.0.0-pre.50",
+    "typescript": "^3.9.6"
   },
   "dependencies": {
     "dotenv": "^8.2.0"
