@@ -2,18 +2,18 @@ import fastify from 'fastify';
 
 import { PORT } from '../config';
 
-import logger from '../logger';
+import health from '../../interfaces/routes/health';
+import location from '../../interfaces/routes/location';
 
 const app = fastify({});
 
-const start = async (): Promise<void> => {
-  try {
-    await app.listen(PORT);
-    logger.info(`server listening on ${PORT}`);
-  } catch (err) {
-    logger.error(err);
-    process.exit(1);
-  }
+app.route(health);
+app.route(location);
+
+const start = async (): Promise<number> => {
+  await app.listen({ port: PORT });
+
+  return PORT;
 };
 
 export default start;
