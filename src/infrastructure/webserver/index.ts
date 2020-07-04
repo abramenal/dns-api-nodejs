@@ -1,19 +1,23 @@
 import fastify from 'fastify';
 
-import { PORT } from '../config';
+import createContext from '../config';
 
-import health from '../../interfaces/routes/health';
-import location from '../../interfaces/routes/location';
+import buildHealth from '../../interfaces/routes/health';
+import buildLocation from '../../interfaces/routes/location';
 
 const app = fastify({});
+const context = createContext();
+
+const health = buildHealth(context);
+const location = buildLocation(context);
 
 app.route(health);
 app.route(location);
 
 const start = async (): Promise<number> => {
-  await app.listen({ port: PORT });
+  await app.listen({ port: context.PORT });
 
-  return PORT;
+  return context.PORT;
 };
 
 export default start;
