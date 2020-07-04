@@ -1,0 +1,11 @@
+{
+  "preset": "ts-jest",
+  "testEnvironment": "node",
+
+  "coverageProvider": "v8",
+  "coverageReporters": ["text", "json-summary"],
+  "coverageDirectory": "coverage",
+  "collectCoverageFrom": ["src/**/*.ts", "!**/node_modules/**"],
+
+  "clearMocks": true
+}
