@@ -1,0 +1,110 @@
+swagger: "2.0"
+info:
+  description: "A drone navigation service for Atlas Corp."
+  version: "1.0.0"
+  title: "dns-api-nodejs"
+  contact:
+    email: "pavel.auramenka@gmail.com"
+  license:
+    name: "MIT"
+    url: "https://github.com/abramenal/dns-api-nodejs/blob/master/LICENSE"
+basePath: "/"
+schemes:
+  - "https"
+  - "http"
+paths:
+  /health:
+    get:
+      summary: "Healthcheck"
+      description: "Returns service status information"
+      produces:
+        - "application/json"
+      responses:
+        "200":
+          description: "Invalid input"
+          schema:
+            $ref: "#/definitions/Health"
+
+  /location/databank:
+    post:
+      summary: "Finds closest databank location"
+      description: ""
+      consumes:
+        - "application/json"
+      produces:
+        - "application/json"
+      parameters:
+        - in: "body"
+          name: "body"
+          description: "Created user object"
+          required: true
+          schema:
+            $ref: "#/definitions/Drone"
+      responses:
+        "400":
+          description: "Invalid input"
+          schema:
+            $ref: "#/definitions/Error"
+        "200":
+          description: "Response"
+          schema:
+            $ref: "#/definitions/DatabankLocation"
+definitions:
+  Health:
+    type: "object"
+    properties:
+      id:
+        type: "integer"
+        format: "int64"
+      status:
+        type: "string"
+        description: "Service Status"
+        enum:
+          - "OK"
+
+  Drone:
+    type: "object"
+    required:
+      - "x"
+      - "y"
+      - "z"
+      - "vel"
+    properties:
+      x:
+        type: "string"
+        example: "123.12"
+      y:
+        type: "string"
+        example: "456.56"
+      z:
+        type: "string"
+        example: "789.89"
+      vel:
+        type: "string"
+        example: "20.0"
+
+  DatabankLocation:
+    type: "object"
+    required:
+      - "loc"
+    properties:
+      loc:
+        type: "string"
+        example: "1389.57"
+
+  Error:
+    type: "object"
+    properties:
+      statusCode:
+        type: "integer"
+        format: "int64"
+        example: 400
+      error:
+        type: "string"
+        example: "Bad Request"
+      message:
+        type: "string"
+        example: "X must be a positive number"
+externalDocs:
+  description: "Find out more about Swagger"
+  url: "http://swagger.io"
