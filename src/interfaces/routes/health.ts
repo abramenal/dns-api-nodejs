@@ -1,13 +1,16 @@
 import withReply from './helpers/withReply';
 import Health from '../controllers/health';
-import { Infrastructure } from '../../types';
+import { Context, RouteOptions } from '../../types/infrastructure';
 
-export default function buildLocation(context: Infrastructure.Context): Infrastructure.RouteConfig {
-  const health: Infrastructure.RouteConfig = {
+export default function buildLocation(context: Context): RouteOptions {
+  const health: RouteOptions = {
     method: 'GET',
     url: '/health',
     handler: withReply(async () => {
-      const id = context.APP_SECTOR_ID;
+      const {
+        variables: { APP_SECTOR_ID: id },
+      } = context;
+
       const status = await Health.status();
 
       return { id, status };

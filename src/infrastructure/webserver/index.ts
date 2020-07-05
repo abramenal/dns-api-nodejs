@@ -1,6 +1,6 @@
 import fastify from 'fastify';
 
-import createContext from '../config';
+import createContext from '../context';
 
 import buildHealth from '../../interfaces/routes/health';
 import buildLocation from '../../interfaces/routes/location';
@@ -15,9 +15,9 @@ app.route(health);
 app.route(location);
 
 const start = async (): Promise<number> => {
-  await app.listen({ port: context.PORT });
+  await app.listen({ port: context.variables.PORT });
 
-  return context.PORT;
+  return context.variables.PORT;
 };
 
 export default start;

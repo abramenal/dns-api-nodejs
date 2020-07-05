@@ -6,13 +6,5 @@
   "tabWidth": 2,
   "trailingComma": "all",
   "bracketSpacing": true,
-  "quoteProps": "consistent",
-  "overrides": [
-    {
-      "files": "*.ts",
-      "options": {
-        "parser": "typescript"
-      }
-    }
-  ]
+  "quoteProps": "consistent"
 }

@@ -1,12 +1,12 @@
 import withReply from './helpers/withReply';
 import Location from '../controllers/location';
-import { Infrastructure } from '../../types';
+import { Context, Request, RouteOptions } from '../../types/infrastructure';
 
-export default function buildLocation(context: Infrastructure.Context): Infrastructure.RouteConfig {
-  const location: Infrastructure.RouteConfig = {
+export default function buildLocation(context: Context): RouteOptions {
+  const location: RouteOptions = {
     method: 'POST',
     url: '/location/databank',
-    handler: withReply(async (request: Infrastructure.Request) => {
+    handler: withReply(async (request: Request) => {
       const { x, y, z, vel: velocity } = request.body;
       const databankLocation = await Location.postLocateDatabank({ x, y, z, velocity }, context);
 

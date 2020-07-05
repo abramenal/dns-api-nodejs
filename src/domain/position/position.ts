@@ -1,7 +1,7 @@
-import { Domain } from '../../types';
+import { Position } from '../../types/domain';
 
 export default function buildMakePosition() {
-  return function makePosition(x: string, y: string, z: string): Domain.Position {
+  return function makePosition(x: string, y: string, z: string): Position {
     const parsedX = Number(x);
     if (!x || Number.isNaN(parsedX) || parsedX <= 0) {
       throw new Error('X must be a positive number');

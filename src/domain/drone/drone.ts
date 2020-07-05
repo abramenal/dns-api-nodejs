@@ -1,11 +1,11 @@
-import { Domain } from '../../types';
+import { Drone, Position } from '../../types/domain';
 
 export default function buildMakeDrone({
   makePosition,
 }: {
-  makePosition: (x: string, y: string, z: string) => Domain.Position;
+  makePosition: (x: string, y: string, z: string) => Position;
 }) {
-  return function makeDrone(position: { [key: string]: string }, velocity: string): Domain.Drone {
+  return function makeDrone(position: { [key: string]: string }, velocity: string): Drone {
     const validPosition = makePosition(position.x, position.y, position.z);
 
     const parsedVelocity = Number(velocity);
