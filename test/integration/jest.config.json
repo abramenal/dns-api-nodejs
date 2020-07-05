@@ -1,0 +1,9 @@
+{
+  "preset": "ts-jest",
+  "testEnvironment": "node",
+
+  "rootDir": "../../",
+  "testMatch": ["<rootDir>/test/integration/routes/*.spec.ts"],
+  "setupFiles": ["<rootDir>/test/integration/jest.setup.ts"],
+  "clearMocks": true
+}

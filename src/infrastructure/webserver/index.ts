@@ -14,6 +14,16 @@ const location = buildLocation(context);
 app.route(health);
 app.route(location);
 
+process.on('unhandledRejection', (reason: string) => {
+  context.logger.error(reason);
+  process.exit(1);
+});
+
+process.on('uncaughtException', function (err) {
+  context.logger.error(err);
+  process.exit(1);
+});
+
 const start = async (): Promise<number> => {
   await app.listen({ port: context.variables.PORT });
 
@@ -21,3 +31,5 @@ const start = async (): Promise<number> => {
 };
 
 export default start;
+
+export { app };
