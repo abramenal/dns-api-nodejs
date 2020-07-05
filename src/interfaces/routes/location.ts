@@ -8,7 +8,7 @@ export default function buildLocation(context: Context): RouteOptions {
     url: '/location/databank',
     handler: withReply(async (request: Request) => {
       const { x, y, z, vel: velocity } = request.body;
-      const databankLocation = await Location.postLocateDatabank({ x, y, z, velocity }, context);
+      const databankLocation = await Location.locateClosestDatabank({ x, y, z, velocity }, context);
 
       return { loc: databankLocation };
     }),

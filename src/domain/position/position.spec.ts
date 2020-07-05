@@ -56,7 +56,7 @@ describe('Position', () => {
   failTestCases.forEach(({ testCase, invalidParameter, args }) => {
     it(testCase, () => {
       const caseHandler = makePosition.bind(null, ...args);
-      expect(() => caseHandler()).toThrow(`${invalidParameter} must be a positive number`);
+      expect(caseHandler).toThrow(`${invalidParameter} must be a positive number`);
     });
   });
 

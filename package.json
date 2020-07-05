@@ -13,7 +13,7 @@
     "lint": "eslint . --ext=ts",
     "start": "node dist/index.js",
     "test": "npm run test:unit && npm run test:security",
-    "test:unit": "jest --coverage",
+    "test:unit": "jest --config=./test/unit/jest.config.json --coverage",
     "test:security": "snyk test",
     "prepare": "snyk protect"
   },

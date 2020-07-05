@@ -2,7 +2,7 @@ import locateClosestDatabank from '../../application/use_cases/locate_closest_da
 import { Context } from '../../types/infrastructure';
 
 export default {
-  postLocateDatabank: (input: { x: string; y: string; z: string; velocity: string }, context: Context): string => {
+  locateClosestDatabank: (input: { x: string; y: string; z: string; velocity: string }, context: Context): string => {
     const { x, y, z, velocity } = input;
     const sectorId = context.variables.APP_SECTOR_ID;
 
