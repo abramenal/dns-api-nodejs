@@ -1,7 +1,11 @@
 import dotenv from 'dotenv';
 
-const env = dotenv.config();
+const { NODE_ENV } = process.env;
 
-if (env.error) {
-  throw env.error;
+if (NODE_ENV === 'development') {
+  const env = dotenv.config();
+
+  if (env.error) {
+    throw env.error;
+  }
 }
