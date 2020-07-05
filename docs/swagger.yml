@@ -21,7 +21,7 @@ paths:
         - "application/json"
       responses:
         "200":
-          description: "Invalid input"
+          description: "Response"
           schema:
             $ref: "#/definitions/Health"
 
