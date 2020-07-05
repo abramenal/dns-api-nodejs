@@ -1,4 +1,5 @@
-import path from 'path';
-import dotenv from 'dotenv';
-
-dotenv.config({ path: path.resolve(__dirname, '../../.env.test') });
+jest.mock('../../src/infrastructure/logger', () => console);
+jest.mock('../../src/infrastructure/config', () => ({
+  PORT: 1234,
+  APP_SECTOR_ID: 1,
+}));

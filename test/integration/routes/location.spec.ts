@@ -1,6 +1,8 @@
-import { app } from '../../../src/infrastructure/webserver';
+import { createApp } from '../../../src/infrastructure/webserver';
 
 describe('location', () => {
+  const app = createApp();
+
   afterAll(() => app.close());
 
   it('POST /location/databank', async (done) => {

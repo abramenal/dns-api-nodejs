@@ -1,6 +1,8 @@
-import { app } from '../../../src/infrastructure/webserver';
+import { createApp } from '../../../src/infrastructure/webserver';
 
 describe('health', () => {
+  const app = createApp();
+
   afterAll(() => app.close());
 
   it('GET /health', async (done) => {

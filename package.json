@@ -13,8 +13,8 @@
     "lint": "eslint . --ext=ts",
     "start": "node --es-module-specifier-resolution=node dist/src/index.js",
     "test": "npm run test:unit && npm run test:integration && npm run test:security",
-    "test:unit": "jest --config=./test/unit/jest.config.json --coverage",
-    "test:integration": "jest --config ./test/integration/jest.config.json",
+    "test:unit": "jest --config=./test/unit/jest.config.json --coverage --silent",
+    "test:integration": "jest --config ./test/integration/jest.config.json --silent",
     "test:security": "snyk test",
     "prepare": "snyk protect"
   },
