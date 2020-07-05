@@ -6,7 +6,7 @@ import createContext from '../context';
 import buildHealth from '../../interfaces/routes/health';
 import buildLocation from '../../interfaces/routes/location';
 
-const app = fastify({});
+const app = fastify({ logger: true });
 const context = createContext();
 
 const health = buildHealth(context);

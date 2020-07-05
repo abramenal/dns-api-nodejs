@@ -6,6 +6,8 @@ export default {
     const { x, y, z, velocity } = input;
     const sectorId = context.variables.APP_SECTOR_ID;
 
+    context.logger.info(`Location: looking for closest databank location in ${sectorId} sector`);
+
     const location = locateClosestDatabank(x, y, z, velocity, sectorId);
 
     return location;

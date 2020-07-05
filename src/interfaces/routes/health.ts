@@ -11,7 +11,7 @@ export default function buildLocation(context: Context): RouteOptions {
         variables: { APP_SECTOR_ID: id },
       } = context;
 
-      const status = await Health.status();
+      const status = await Health.status(context);
 
       return { id, status };
     }),
