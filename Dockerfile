@@ -1,14 +1,14 @@
-FROM node:10.16.3-alpine AS build
+FROM node:14.5.0-alpine AS build
 WORKDIR /app
 COPY . .
 RUN npm install
 RUN npm run build
 
-FROM node:10.16.3-alpine AS release
+FROM node:14.5.0-alpine AS release
 WORKDIR /app
 
-COPY --from=build /app/package*.json /app/dist ./
-COPY --from=build /app/dist/src ./dist
+COPY --from=build /app/package*.json ./
+COPY --from=build /app/dist/src ./dist/src
 
 RUN npm ci --only=production
 

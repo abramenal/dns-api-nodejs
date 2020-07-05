@@ -1,14 +1,13 @@
 {
   "compilerOptions": {
-    "lib": ["dom", "es2018"],
-    "module": "commonjs",
-    "target": "es2018",
-    "strict": true,
-
-    "esModuleInterop": true,
-    "sourceMap": false,
+    "lib": ["es2020", "dom"],
+    "allowSyntheticDefaultImports": true,
+    "module": "es2020",
+    "moduleResolution": "node",
+    "target": "es2020",
     "outDir": "dist",
-    "baseUrl": "."
+    "baseUrl": ".",
+    "esModuleInterop": true
   },
   "include": ["src", "test"]
 }
