@@ -1,4 +1,5 @@
 import fastify from 'fastify';
+import helmet from 'fastify-helmet';
 
 import createContext from '../context';
 
@@ -11,6 +12,7 @@ const context = createContext();
 const health = buildHealth(context);
 const location = buildLocation(context);
 
+app.register(helmet);
 app.route(health);
 app.route(location);
 
