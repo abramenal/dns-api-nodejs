@@ -82,7 +82,7 @@ npm run test:security
 ```bash
 npm run build
 
-npm start
+PORT=8000 APP_SECTOR_ID=1 npm start
 ```
 
 ### Wrapping up with [Docker][docker]
